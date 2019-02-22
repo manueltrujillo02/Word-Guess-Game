@@ -8,13 +8,21 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 var wins = 0;
 var losses = 0;
 var guesses = 10;
-var guesessofar = null;
+var guesessofar = [""];
+
+
 
 
 var winsText = document.getElementById("wins-text");
 var lossesText = document.getElementById("losses-text");
 var guessesText = document.getElementById("guesses-text")
 var guessessofarText = document.getElementById("guessessofar-text")
+
+
+guessessofarText.textContent = "Your Guesses so far: ";
+guessesText.textContent = "Guesses left: ";
+lossesText.textContent = "losses: ";
+winsText.textContent = "wins: ";
 document.onkeyup = function (event) {
     var userGuess = event.key;
 
@@ -33,13 +41,13 @@ document.onkeyup = function (event) {
     }
     else if (losses === 3) {
         alert("GAME OVER!")
+    
     }
-
     winsText.textContent = "wins: " + wins;
     lossesText.textContent = "losses: " + losses;
     guessesText.textContent = "Guesses left: " + guesses;
-    guessessofarText.textContent = "Your Guesses so far: " + userGuess;
-    
+    guessessofarText.textContent += userGuess;
+
 
 
 }
